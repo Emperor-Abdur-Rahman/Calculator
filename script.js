@@ -96,10 +96,20 @@ function evaluateExpression() {
 // Calculate percentage
 function calculatePercentage() {
   try {
-    const expression = display.textContent;
-    const result = eval(expression) / 100;
-    display.textContent = result;
-    hasPercentage = true;
+    let expression = display.textContent;
+    const lastOperatorIndex = expression.search(/[-+*/]/g);
+    if (lastOperatorIndex !== -1) {
+      // Find the last number before the percentage sign
+      const lastNumber = expression.slice(lastOperatorIndex + 1);
+      const result = eval(lastNumber) * 0.01;
+      display.textContent = result;
+      hasPercentage = true;
+    } else {
+      // If there's no operator, treat the whole display as a percentage
+      const result = eval(expression) * 0.01;
+      display.textContent = result;
+      hasPercentage = true;
+    }
   } catch (error) {
     display.textContent = 'Error';
   }
