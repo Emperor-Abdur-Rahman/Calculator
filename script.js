@@ -51,48 +51,21 @@ buttons.forEach(button => {
   button.addEventListener('click', () => {
     const buttonText = button.textContent;
     if (buttonText === 'AC') {
-      display.textContent = '';
+      clearDisplay();
     } else if (buttonText === 'DEL') {
-      display.textContent = display.textContent.slice(0, -1);
+      deleteLastCharacter();
     } else if (buttonText === '=') {
-      try {
-        const result = eval(display.textContent);
-        display.textContent = result;
-      } catch (error) {
-        display.textContent = 'Error';
-      }
+      evaluateExpression();
+    } else if (buttonText === '%') {
+      calculatePercentage();
     } else {
-      display.textContent += buttonText;
+      appendToDisplay(buttonText);
     }
   });
 });
 
-
-// Handle button clicks
-function handleButtonClick(buttonText) {
-  if (shouldEvaluate) {
-    clearDisplay();
-    shouldEvaluate = false;
-  }
-
-  switch (buttonText) {
-    case 'AC':
-      clearDisplay();
-      break;
-    case 'DEL':
-      deleteLastCharacter();
-      break;
-    case '=':
-      evaluateExpression();
-      break;
-    case '%':
-      calculatePercentage();
-      break;
-    default:
-      appendToDisplay(buttonText);
-      break;
-  }
-}
+// Variable to track if the expression contains a percentage
+let hasPercentage = false;
 
 // Clear the display
 function clearDisplay() {
@@ -115,7 +88,6 @@ function evaluateExpression() {
     }
     const result = eval(expression);
     display.textContent = result;
-    shouldEvaluate = true;
   } catch (error) {
     display.textContent = 'Error';
   }
@@ -125,8 +97,8 @@ function evaluateExpression() {
 function calculatePercentage() {
   try {
     const expression = display.textContent;
-    const result = eval(expression) * 100;
-    display.textContent = result + '%';
+    const result = eval(expression) / 100;
+    display.textContent = result;
     hasPercentage = true;
   } catch (error) {
     display.textContent = 'Error';
