@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Fasthand', cursive;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-item {
+    margin: 0 10px; /* Add horizontal margin to each event button */
+  }
+  
+  #content {
+    margin-top: 20px;
+  }
+  
+  .nav-item.active {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  
+  button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    color: #ddd;
+  }
+  
+
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: wheat;
+}
+
+.calc{
+  color: black;
+  font-size: 2rem;
+  width: 400px;
+  margin-bottom: 10px;
+}
+
+.container{
+  height: 600px;
+  width: 400px;
+}
+
+.outerCont{
+  width: 100%;
+  background-color: gray;
+  border-radius: 100px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.outerCont .display{
+  word-wrap: break-word;
+  text-align: end;
+  font-size: 1.5rem;
+}
+
+.outerCont .answer-container .answer {
+    background-color: rgb(28, 29, 26);
+    word-wrap: break-word;
+    font-size: 2rem;
+    text-align: right;
+    padding: 10px;
+    margin-top: auto;
+    color: white; /* Add the color property */
+  }
+  
+
+.calcingVals{
+  background-color: rgb(20, 20, 46);
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 360px;
+  height: 400px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.calcingVals .buttons{
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: silver;
+  height: 60px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.calcingVals .buttons-but{
+  background-color: gold;
+  color: black;
+}
+
+
+.footer-c{
+    margin-top: ;
+    color: ;
+    font-size: ;
+}
+
+@media (max-width: 415px) {
+    body {
+      background-color: coral;
+      height: auto;
+    }
+  
+    .container {
+      padding: 20px;
+      width: 100%;
+    }
+  
+    .calc {
+      margin-bottom: 20px;
+      padding: 10px;
+      width: 100%;
+    }
+  }
