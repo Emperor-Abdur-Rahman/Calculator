@@ -44,17 +44,29 @@ document.addEventListener("DOMContentLoaded", function() {
 // Get the elements
 const display = document.querySelector('.display');
 const buttons = document.querySelectorAll('.buttons');
-let shouldEvaluate = false;
-let hasPercentage = false;
+const equalButton = document.querySelector('.buttons-but');
 
-// Add click event listener to each button
+// Add click event listeners to the buttons
 buttons.forEach(button => {
   button.addEventListener('click', () => {
     const buttonText = button.textContent;
-    // Handle button clicks
-    handleButtonClick(buttonText);
+    if (buttonText === 'AC') {
+      display.textContent = '';
+    } else if (buttonText === 'DEL') {
+      display.textContent = display.textContent.slice(0, -1);
+    } else if (buttonText === '=') {
+      try {
+        const result = eval(display.textContent);
+        display.textContent = result;
+      } catch (error) {
+        display.textContent = 'Error';
+      }
+    } else {
+      display.textContent += buttonText;
+    }
   });
 });
+
 
 // Handle button clicks
 function handleButtonClick(buttonText) {
