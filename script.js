@@ -101,7 +101,7 @@ function calculatePercentage() {
     if (lastOperatorIndex !== -1) {
       // Find the last number before the percentage sign
       const lastNumber = expression.slice(lastOperatorIndex + 1);
-      const result = eval(lastNumber) * 0.01;
+      const result = eval(lastNumber) * (1 - 0.01 * eval(lastNumber));
       display.textContent = result;
       hasPercentage = true;
     } else {
